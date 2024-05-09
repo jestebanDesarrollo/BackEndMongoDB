@@ -48,7 +48,7 @@ router.get('/users/byemail/:email',cors(),async(req, res)=>{
     // Actualizar user por id
 router.put('/users/:id',cors(),(req, res)=>{
     const { id } = req.params;
-    const {name, age, email} = req.body;
+    const {username,fullname,email,password,role} = req.body;
     userSchema
          .updateOne({_id:id},{$set: {username, fullname, email, password, role}})
          .then((data) => res.json(data))
